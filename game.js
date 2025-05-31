@@ -28,8 +28,8 @@ const config = {
   let scoreCounter;
 
   function preload() {
-    this.load.image('fish', 'assets/fish_green.png');
-    this.load.image("bubble", "assets/bubble_a.png");
+    this.load.image('fish', 'assets/rohan.png');
+    this.load.image("bubble", "assets/beer.png");
   }
 
 
@@ -39,11 +39,14 @@ const config = {
 
 
     fish = this.physics.add.sprite(100, 300, 'fish');
+    fish.setScale(0.1);
     this.physics.add.existing(fish);
     fish.body.setCollideWorldBounds(true);
 
+
     bubble = this.physics.add.sprite(700, 400, "bubble");
     this.physics.add.existing(bubble);
+    bubble.setScale(0.2);
     //bubble.body.setCollideWorldBounds(true);
     
     bubble.body.setVelocityX(-speed);
