@@ -15,8 +15,8 @@ const config = {
     update
   },
   scale: {
-  mode: Phaser.Scale.RESIZE,
-  autoCenter: Phaser.Scale.CENTER_BOTH
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH
   }
 };
 
@@ -50,16 +50,6 @@ function create() {
     fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif',
     fontSize: '32px',
     color: '#fff'
-  });
-
-  let fsButton = this.add.text(700, 20, '🔳', { fontSize: '32px', fill: '#fff' })
-  .setInteractive()
-  .on('pointerup', () => {
-    if (!this.scale.isFullscreen) {
-      this.scale.startFullscreen();
-    } else {
-      this.scale.stopFullscreen();
-    }
   });
 
   // Create a timed event that calls `onEvent` every second:
@@ -115,20 +105,21 @@ function update() {
   }, this);
 }
 
-function spawnBomb() {
-  const x = Phaser.Math.Between(this.scale.width, this.scale.width + 200);
-  const y = Phaser.Math.Between(50, this.scale.height - 50);
-  const bomb = bombs.create(x, y, "bomb");
-  bomb.setScale(0.2);
-  bomb.setVelocityX(-speed);
-}
-
 function spawnBubble() {
-  const x = Phaser.Math.Between(this.scale.width, this.scale.width + 200);
-  const y = Phaser.Math.Between(50, this.scale.height - 50);
+  const x = Phaser.Math.Between(800,1000);
+  const y = Phaser.Math.Between(50, 550);
+  
   const bubble = bubbles.create(x, y, "bubble");
   bubble.setScale(0.2);
   bubble.setVelocityX(-speed);
+}
+
+function spawnBomb() {
+  const x = Phaser.Math.Between(800,1000);
+  const y = Phaser.Math.Between(50, 550);
+  const bomb = bombs.create(x, y, "bomb");
+  bomb.setScale(0.2);
+  bomb.setVelocityX(-speed);
 }
 
 function collectBubble(fish, bubble) {
