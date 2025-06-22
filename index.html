@@ -5,13 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>Shergy's Fishtank</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+    
     <style>
       body { margin: 0; }
       canvas { display: block; margin: auto; }
     </style>
   </head>
   <body>
-    <script src="game.js"></script>
+    <script src="game.js" defer></script>
+    <input id="playerName" type="text" placeholder="Enter your name"
+      style="
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 20px;
+        padding: 5px;
+        z-index: 10;
+    ">
+
+    <button id="startButton"
+      style="
+        position: absolute;
+        top: 10px;
+        left: 250px;
+        font-size: 20px;
+        padding: 5px 10px;
+        z-index: 10;
+    ">
+      Start Game
+    </button>
   </body>
 </html>
